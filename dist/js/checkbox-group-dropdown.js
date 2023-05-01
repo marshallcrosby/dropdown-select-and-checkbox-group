@@ -1,5 +1,5 @@
 /*!
-    * Checkbox Group Dropdown v2.0.0
+    * Checkbox Group Dropdown v2.0.1
     *
     * Copyright 2021-2023 Marshall Crosby
     * https://marshallcrosby.com

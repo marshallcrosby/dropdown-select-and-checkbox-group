@@ -16,7 +16,8 @@ $padding-y-dropdown-item: 5px;
     display: none;
     background-color: $bg-color-dropdown;
 
-    &.js-is-showing {
+    &.js-is-showing,
+    &.show {
         display: block;
         z-index: 1000;
     }

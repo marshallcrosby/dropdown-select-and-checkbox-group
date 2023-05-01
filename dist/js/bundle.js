@@ -1,5 +1,5 @@
 /*!
-    * Simple Dropdown v2.0.0
+    * Simple Dropdown v2.0.1
     *
     * Copyright 2021-2023 Marshall Crosby
     * https://marshallcrosby.com
@@ -175,7 +175,7 @@
     });
 }(jQuery));
 /*!
-    * Checkbox Group Dropdown v2.0.0
+    * Checkbox Group Dropdown v2.0.1
     *
     * Copyright 2021-2023 Marshall Crosby
     * https://marshallcrosby.com
@@ -342,7 +342,7 @@
     };
 }(jQuery));
 /*!
-    * Select to Dropdown v2.0.0
+    * Select to Dropdown v2.0.1
     *
     * Copyright 2021-2023 Marshall Crosby
     * https://marshallcrosby.com
