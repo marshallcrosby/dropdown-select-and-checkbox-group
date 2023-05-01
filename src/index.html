@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<title>Select to dropdown</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/select-to-dropdown.css" rel="stylesheet">
+</head>
+<body>
+    <form action="" style="margin-top: 200px; padding: 30px;">
+
+        <h2>Select-to-dropdown using simple dropdown</h2>
+		
+		<label for="selectDropdownExampleSelect" id="selectExamplLabel">Example Select</label>
+		<select class="styled-select" id="selectDropdownExampleSelect" name="Example" tabindex="-1">
+			<option value="">Select Options</option>
+			<option value="04">Nihil Larum</option>
+			<option value="00">Lorem Ipsum</option>
+			<option value="01">Dolor Sit</option>
+			<option value="02">Amet Consectetur</option>
+			<option value="03">Adipisicing</option>
+		</select>
+		        
+        
+        <h2>Select-to-dropdown using Bootstrap 4 dropdown</h2>
+        		
+		
+		<div class="select-to-dropdown dropdown b-dropdown">
+			
+            <label for="selectDropdownExampleSelect2" id="selectExamplLabel2">Example Select 2</label>
+			
+			<!-- Hidden select element used in the form -->
+            <select id="selectDropdownExampleSelect2" name="Topic" tabindex="-1">
+                <option value="">Select</option>
+                <option value="00">Lorem Ipsum</option>
+                <option value="01">Dolor Sit</option>
+                <option value="02">Amet Consectetur</option>
+                <option value="03">Adipisicing</option>
+                <option value="04">Nihil Earum</option>
+            </select>
+
+            <button class="btn btn-primary toggle-btn" type="button" id="dropdownMenuButton2" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">
+                <span class="toggle-text">Select Again</span>
+				<i class="toggle-indicator fa fa-chevron-down" aria-hidden="true"></i>
+            </button>
+
+            <!-- Dropdown items built from select element in js -->
+            <div class="dropdown-menu b-dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                
+            </div>
+        </div>
+
+
+
+        <hr>
+
+
+
+        <h2>Checkbox group in simple dropdown</h2>
+        <div class="checkbox-group-dropdown b-dropdown b-dropdown--styled">
+            <button class="toggle-btn" id="exampleToggle" type="button" aria-haspopup="true" aria-expanded="false">
+                <span class="toggle-text">Original Text</span>
+				<i class="toggle-indicator fa fa-chevron-down" aria-hidden="true"></i>
+            </button>
+
+            <!-- Services dropdown with checkboxes -->
+            <div class="b-dropdown-menu" aria-labelledby="exampleToggle">
+                
+                <!-- Checkboxes -->
+                <fieldset>
+                    <legend class="sr-only">Example Legend Text</legend>
+                    <label class="b-dropdown-item">
+                        <input type="checkbox" name="locationServices" value="LoremIpsum">Lorem Ipsum
+                    </label>
+                    <label class="b-dropdown-item">
+                        <input type="checkbox" name="locationServices" value="DolorSit">Dolor Sit
+                    </label>
+                    <label class="b-dropdown-item">
+                        <input type="checkbox" name="locationServices" value="AmetConsectetur">Amet Consectetur
+                    </label>
+                    <label class="b-dropdown-item">
+                        <input type="checkbox" name="locationServices" value="Adipisicing">Adipisicing
+                    </label>
+                    <label class="b-dropdown-item">
+                        <input type="checkbox" name="locationServices" value="NihilEarum">Nihil Earum
+                    </label>
+                </fieldset>
+				
+				<!-- Checkbox group controls (not required) -->
+				<div class="btn-group w-100" role="group" aria-label="Controls">
+					
+					<!-- Clear button -->
+					<button class="clear-btn btn btn-secondary" type="button">
+						Clear All
+					</button>
+	
+					<!-- Apply button -->
+					<button class="apply-btn btn btn-secondary" type="button">
+						Apply <i class="fa fa-check" aria-hidden="true"></i>
+					</button>
+				</div>
+            </div>
+        </div>
+
+
+
+        <h2>Checkbox group in Bootstrap 4 dropdown</h2>
+        <div class="checkbox-group-dropdown dropdown b-dropdown">
+            <button class="btn btn-primary toggle-btn" id="exampleToggle2" type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">
+                <span class="toggle-text">Original Text</span>
+            </button>
+
+            <!-- Services dropdown with checkboxes -->
+            <div class="dropdown-menu b-dropdown-menu" aria-labelledby="exampleToggle2">
+
+                <!-- Checkboxes -->
+                <fieldset>
+                    <legend class="sr-only">Example Legend Text</legend>
+                    <label class="b-dropdown-item dropdown-item">
+                        <input type="checkbox" name="locationServices" value="LoremIpsum">Lorem Ipsum
+                    </label>
+                    <label class="b-dropdown-item dropdown-item">
+                        <input type="checkbox" name="locationServices" value="DolorSit">Dolor Sit
+                    </label>
+                    <label class="b-dropdown-item dropdown-item">
+                        <input type="checkbox" name="locationServices" value="AmetConsectetur">Amet Consectetur
+                    </label>
+                    <label class="b-dropdown-item dropdown-item">
+                        <input type="checkbox" name="locationServices" value="Adipisicing">Adipisicing
+                    </label>
+                    <label class="b-dropdown-item dropdown-item">
+                        <input type="checkbox" name="locationServices" value="NihilEarum">Nihil Earum
+                    </label>
+                </fieldset>
+
+                <!-- Checkbox group controls (not required) -->
+                <div class="btn-group w-100" role="group" aria-label="Controls">
+                    
+                    <!-- Clear button -->
+                    <button class="clear-btn btn btn-secondary" type="button">
+                        Clear All
+                    </button>
+    
+                    <!-- Apply button -->
+                    <button class="apply-btn btn btn-secondary" type="button">
+                        Apply <i class="fa fa-check" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test submit button -->
+        <button>Submit</button>
+    </form>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <!-- Not required if using bootstrap dropdown -->
+    <script src="js/simple-dropdown.js"></script>
+    
+    <script src="js/checkbox-group-dropdown.js"></script>
+    
+	<script src="js/select-to-dropdown.js"></script>
+    
+    <script>
+        $(function () {
+			
+			$('.styled-select').renderSelectToDropdownElements({
+				'buttonClass': 'btn btn-primary',
+				// 'bootstrapDropdown': true,
+                // 'bootstrapVersion': '5'
+			});
+
+            // Select to dropdown initialization
+            $('.select-to-dropdown').selectToDropdown();
+
+            // Checkbox group in dropdown
+            $('.checkbox-group-dropdown').checkBoxGroupDropdown({
+                maxAmount: 2
+            });
+        });
+    </script>
+</body>

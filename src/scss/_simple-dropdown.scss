@@ -1,0 +1,114 @@
+$bg-color-dropdown: #fff;
+$inset: 15px;
+$color-hover: #666;
+$color-toggle-hover: #eee;
+$border-radius-outer: 3px;
+$padding-y-dropdown-item: 5px;
+
+.b-dropdown {
+    position: relative;
+}
+
+.b-dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    display: none;
+    background-color: $bg-color-dropdown;
+
+    &.js-is-showing {
+        display: block;
+        z-index: 1000;
+    }
+    
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+}
+
+.b-dropdown--styled {
+    line-height: 1.29;
+    font-size: 14px;
+    
+    button {
+        display: block;
+
+        width: 100%;
+        padding: 10px $inset;
+
+        text-align: left;
+
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    
+    .toggle-btn {
+        border: 1px solid #606060;
+        border-radius: $border-radius-outer;
+        position: relative;
+        padding-right: 45px;
+        
+        .toggle-indicator {
+            position: absolute;
+            right: $inset;
+            top: 11px;
+            font-size: 14px;
+        }
+            
+        &[aria-expanded="true"] {
+            border-bottom-color: #fff;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+            z-index: 1001;
+            
+            .toggle-indicator {
+                transform: rotate(-180deg);
+            }
+        }
+        
+        &:hover {
+            background-color: $color-toggle-hover;
+        }
+    }
+
+    .b-dropdown-item {
+        display: block;
+        padding: $padding-y-dropdown-item $inset;
+    }
+    
+    [role="option"] {
+        &:hover {
+            background-color: $color-hover;
+            color: #fff;
+        }
+        
+        &:first-child {
+            display: none;
+        }
+    }
+    
+    .b-dropdown-menu {
+        width: 100%;
+        border: 1px solid #606060;
+        border-radius: $border-radius-outer;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        max-height: 260px;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        
+        &.js-is-showing {
+            border-top: 0;
+            top: calc(100% - 1px);
+        }
+    }
+    
+    .js-has-selected + .b-dropdown-menu {
+        [role="option"]:first-child {
+            display: block;
+        }
+    }
+}
