@@ -1,3 +1,10 @@
+/*!
+    * Checkbox Group Dropdown v2.0.0
+    *
+    * Copyright 2021-2023 Marshall Crosby
+    * https://marshallcrosby.com
+*/
+
 (function ($) {
     'use strict';
     
@@ -85,7 +92,7 @@
             updateDropdownToggleText($mainEl, toggleBtnOriginalText);
                         
             // Focus on first or selected item when dropdown is fired
-            var shownHandler = ($mainEl.find('[data-toggle="dropdown"]').length) ? 'shown.bs.dropdown' : 'shown.dropdown';
+            var shownHandler = ($mainEl.find('[data-toggle="dropdown"], [data-bs-toggle="dropdown"]').length) ? 'shown.bs.dropdown' : 'shown.dropdown';
             $mainEl.on(shownHandler, function() {                            
                 var focusOnThisEl = ($mainEl.find('.js-is-checked').length) ? $mainEl.find('.js-is-checked').first('> input') : $mainEl.find('.b-dropdown-item').first().find('input');
                 
@@ -103,7 +110,7 @@
                     
                     e.stopImmediatePropagation();
 
-                    if (eTarget.closest('.dropdown-menu').attr('data-toggle') !== 'dropdown') {
+                    if (eTarget.closest('.dropdown-menu').attr('data-toggle') || eTarget.closest('.dropdown-menu').attr('data-bs-toggle') !== 'dropdown') {
                         e.stopPropagation();
                     }
         

@@ -10,7 +10,6 @@ const autoprefixer = require('autoprefixer');
 const cleanCss = require('gulp-clean-css');
 
 // JS-related
-const concat = require('gulp-concat');
 const minify = require('gulp-minify');
 const include = require('gulp-include');
 
@@ -26,22 +25,30 @@ const roots = {
     dist: './dist',
 };
 
-// Move html to dist
-gulp.task('copy-html', function (done) {
-    return gulp.src([`${roots.src}/index.html`])
-        .pipe(gulp.dest(`${roots.dist}`))
+// Creates JS sourcemaps, concatenates JS files into one file based on array above, and minifies JS
+gulp.task('js', function () {
+    return gulp.src([
+            `${roots.src}/js/bundle.js`,
+            `${roots.src}/js/simple-dropdown.js`,
+            `${roots.src}/js/select-to-dropdown.js`,
+            `${roots.src}/js/checkbox-group-dropdown.js`
+        ])
+        .pipe(include())
+        .pipe(sourcemaps.init())
+        .pipe(minify({
+            ext: {
+                min: '.min.js'
+            },
+                preserveComments: 'some'
+            }
+        ))
+        .pipe(gulp.dest(roots.dist + '/js', { sourcemaps: '.' }))
         .pipe(connect.reload());
 });
 
-// Move js to dist
-gulp.task('copy-js', function (done) {
-    return gulp.src([`${roots.src}/js/simple-dropdown.js`, `${roots.src}/js/select-to-dropdown.js`, `${roots.src}/js/checkbox-group-dropdown.js`])
-        .pipe(gulp.dest(`${roots.dist}/js`))
-        .pipe(connect.reload());
-});
 
 // Creates CSS sourcemaps, converts SCSS to CSS, adds prefixes, and lints CSS
-gulp.task('sass', function (done) {
+gulp.task('sass', function () {
     const plugins = [
         autoprefixer({ grid: true })
     ];
@@ -56,11 +63,29 @@ gulp.task('sass', function (done) {
         .pipe(connect.reload());
 });
 
+// Move html to dist
+gulp.task('copy-html', function () {
+    return gulp.src([`${roots.src}/index.html`])
+        .pipe(gulp.dest(`${roots.dist}`))
+        .pipe(connect.reload());
+});
+
+// Move js to dist
+gulp.task('copy-js', function () {
+    return gulp.src([
+            `${roots.src}/js/simple-dropdown.js`,
+            `${roots.src}/js/select-to-dropdown.js`,
+            `${roots.src}/js/checkbox-group-dropdown.js`
+        ])
+        .pipe(gulp.dest(`${roots.dist}/js`))
+        .pipe(connect.reload());
+});
+
 // Runs a server to static HTML files and sets up watch tasks
 gulp.task('server', function (done) {
     gulp.watch((`${roots.src}/**/*.html`), gulp.series('copy-html'));
     gulp.watch((`${roots.src}/scss/**/*.scss`), gulp.series('sass'));
-    gulp.watch((`${roots.src}/js/**/*`), gulp.series('copy-js'));
+    gulp.watch((`${roots.src}/js/**/*`), gulp.series('js', 'copy-js'));
 
     connect.server({
         root: roots.dist,
@@ -75,6 +100,6 @@ gulp.task('server', function (done) {
     done();
 });
 
-gulp.task('build', gulp.series('sass', 'copy-html', 'copy-js'));
+gulp.task('build', gulp.series('sass', 'js', 'copy-html', 'copy-js'));
 
 gulp.task('default', gulp.series('build', 'server'));

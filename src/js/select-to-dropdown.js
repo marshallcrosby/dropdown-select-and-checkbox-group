@@ -1,3 +1,10 @@
+/*!
+    * Select to Dropdown v2.0.0
+    *
+    * Copyright 2021-2023 Marshall Crosby
+    * https://marshallcrosby.com
+*/
+
 (function ($) {
     'use strict';
     
@@ -37,7 +44,7 @@
                 .insertAfter($(this).closest('.select-to-dropdown select'));
                 
             if (settings.bootstrapDropdown === true) {
-                var dataToggle = (settings.bootstrapVersion === '5') ? 'data-bs-toggle' : 'data-toggle'
+                var dataToggle = (settings.bootstrapVersion === '4') ? 'data-toggle' : 'data-bs-toggle'
                 $select
                     .closest('.select-to-dropdown')
                     .find('.toggle-btn')

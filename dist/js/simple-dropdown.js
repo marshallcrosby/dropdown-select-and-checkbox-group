@@ -1,3 +1,10 @@
+/*!
+    * Simple Dropdown v2.0.0
+    *
+    * Copyright 2021-2023 Marshall Crosby
+    * https://marshallcrosby.com
+*/
+
 (function ($) {
     'use strict';
     
